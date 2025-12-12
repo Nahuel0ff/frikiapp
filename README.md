@@ -3,7 +3,7 @@
 Instalación y ejecución (Windows):
 
 1. Abrir PowerShell o CMD en:
-   c:\Users\nahue\OneDrive\Desktop\Prueba\my-react-app
+   la carpeta del proyecto (navega al directorio donde clonaste o descargaste el repositorio).
 
 2. Ejecutar:
    npm install
