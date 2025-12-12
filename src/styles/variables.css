@@ -1,0 +1,63 @@
+:root {
+  /* Dark Theme Palette (Midnight Blue) */
+  --bg-dark: #0a0e27;
+  --bg-dark-secondary: #141b3e;
+  --text-dark-primary: #e2e8f0;
+  --text-dark-secondary: #94a3b8;
+  --border-dark: #1e293b;
+
+  /* Light Theme Palette (Soft Light) */
+  --bg-light: #f0f2f5;
+  --bg-light-secondary: #ffffff;
+  --text-light-primary: #1c1c1e;
+  --text-light-secondary: #636366;
+  --border-light: #000000;
+
+  /* Brand/Accent Colors - Minimalist */
+  --accent-color: #5c6bc0;
+  /* Muted Indigo/Blue */
+  /* Muted Indigo/Blue */
+  --accent-hover: #3949ab;
+}
+
+[data-theme="dark"] {
+  --whatsapp-bg: #15803d;
+  /* Darker Green (Green-700) */
+  --whatsapp-text: #ffffff;
+
+  --bg-app: var(--bg-dark);
+  --bg-card: var(--bg-dark-secondary);
+  --text-primary: var(--text-dark-primary);
+  --text-secondary: var(--text-dark-secondary);
+  --border-color: var(--border-dark);
+  --header-bg: rgba(10, 14, 39, 0.8);
+  /* Semi-transparent midnight blue */
+
+  --dropdown-bg: #141b3e;
+  --dropdown-hover: #1e2a5a;
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.2);
+
+  --toggle-bg: #1e293b;
+  --toggle-thumb: #e2e8f0;
+}
+
+[data-theme="light"] {
+  --whatsapp-bg: #4ade80;
+  /* Lighter Green (Green-400) */
+  --whatsapp-text: #052e16;
+  /* Very dark green text for contrast */
+
+  --bg-app: var(--bg-light);
+  --bg-card: var(--bg-light-secondary);
+  --text-primary: var(--text-light-primary);
+  --text-secondary: var(--text-light-secondary);
+  --border-color: var(--border-light);
+  --header-bg: rgba(255, 255, 255, 0.8);
+
+  --dropdown-bg: #ffffff;
+  --dropdown-hover: #f2f2f7;
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+  --toggle-bg: #e5e5ea;
+  --toggle-thumb: #ffffff;
+}

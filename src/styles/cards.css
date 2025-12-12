@@ -1,0 +1,166 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 24px;
+}
+
+.deck-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-top: 4px solid;
+  border-radius: 12px;
+  /* Slightly reduced radius for cleaner look */
+  overflow: visible;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  box-shadow: var(--shadow-card);
+}
+
+.deck-card:hover {
+  transform: translateY(-2px);
+  /* gentler hover lift */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  /* Softer hover shadow */
+  border-color: var(--accent-color);
+  /* Subtle interactive hint */
+}
+
+/* Card Links */
+.deck-link {
+  text-decoration: none;
+  color: inherit;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+/* Header Area */
+.deck-header {
+  height: 90px;
+  /* Reduced height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  /* Slightly smaller icon */
+  border-radius: 8px 8px 0 0;
+}
+
+/* Body Content */
+.deck-body {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  /* Tighter gap */
+  flex-grow: 1;
+}
+
+.deck-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deck-body h3 {
+  font-size: 1.15rem;
+  /* Refined font size */
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+  /* Modern typography tweak */
+}
+
+.deck-ck {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 4px 8px;
+  background: transparent;
+  /* Removed bg for minimalism */
+  border: 1px solid var(--border-color);
+  /* Subtle border instead */
+  border-radius: 6px;
+  color: var(--text-secondary);
+}
+
+.deck-action {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  margin-top: auto;
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Whatsapp Button - Minimalist Style */
+.deck-whatsapp {
+  background: var(--whatsapp-bg);
+  color: var(--whatsapp-text);
+  text-align: center;
+  padding: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-top: 1px solid var(--border-color);
+  border-radius: 0 0 12px 12px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  opacity: 0.9;
+}
+
+.deck-whatsapp:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+  position: absolute;
+  top: 65%;
+  left: 10px;
+  right: 10px;
+  background: var(--dropdown-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  /* Cleaner shadow */
+  z-index: 50;
+  animation: slideDown 0.15s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-item {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: var(--text-primary);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background 0.1s;
+}
+
+.dropdown-item:hover {
+  background: var(--dropdown-hover);
+  color: var(--accent-color);
+}
