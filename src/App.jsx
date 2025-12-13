@@ -8,7 +8,7 @@ export default function App() {
   return (
     <div className="app">
       <header className="header">
-        <h1>Mi Aplicación</h1>
+        <h1>Mercado Friki</h1>
         <ThemeToggle />
       </header>
       <main>
@@ -16,7 +16,7 @@ export default function App() {
       </main>
       <OrderManager />
       <footer className="footer">
-        <p>&copy; 2025 Mi Aplicación. Todos los derechos reservados.</p>
+        <p>&copy; 2025 Mercado Friki. Todos los derechos reservados.</p>
       </footer>
     </div>
   )
