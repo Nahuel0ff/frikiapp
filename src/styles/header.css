@@ -28,6 +28,18 @@
   letter-spacing: -0.02em;
 }
 
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
 /* Theme Toggle Styles */
 .theme-toggle {
   background: none;
@@ -61,6 +73,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.toggle-img {
+  width: 18px;
+  height: 18px;
+  display: block;
 }
 
 [data-theme="dark"] .toggle-thumb {

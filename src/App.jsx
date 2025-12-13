@@ -8,7 +8,10 @@ export default function App() {
   return (
     <div className="app">
       <header className="header">
-        <h1>Mercado Friki</h1>
+        <div className="brand">
+          <img src="favicon.svg" alt="M" className="brand-icon" />
+          <h1>Mercado Friki</h1>
+        </div>
         <ThemeToggle />
       </header>
       <main>
