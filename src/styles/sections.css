@@ -20,6 +20,16 @@ h2 {
   animation: fadeInUp 0.8s ease-out backwards;
 }
 
+/* Center section titles for DeckSection containers */
+.special-section > h2,
+.container > h2 {
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
 @media (max-width: 768px) {
 
   .special-section,
@@ -37,4 +47,12 @@ h2 {
   .special-section .grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Very specific rule to ensure the main section titles are centered on the page */
+.app .home .special-section > h2,
+.app .home .container > h2 {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }

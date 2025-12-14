@@ -49,6 +49,22 @@
   border-radius: 8px 8px 0 0;
 }
 
+.deck-header .deck-icon {
+  width: 48px;
+  height: 48px;
+  display: block;
+  object-fit: contain;
+}
+
+.deck-icon-fallback {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
 /* Body Content */
 .deck-body {
   padding: 16px 20px;
@@ -122,42 +138,45 @@
   transform: translateY(-1px);
 }
 
-/* Dropdown Menu Styles */
-.dropdown-menu {
+.links-panel {
   position: absolute;
-  top: 65%;
-  left: 10px;
-  right: 10px;
+  left: 12px;
+  right: 12px;
+  top: calc(100% + 10px);
   background: var(--dropdown-bg);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 4px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  /* Cleaner shadow */
-  z-index: 50;
-  animation: slideDown 0.15s ease-out;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 10px;
+  box-shadow: 0 12px 30px rgba(2,6,23,0.12);
+  transform-origin: top center;
+  transform: scaleY(0);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 260ms cubic-bezier(.2,1,.2,1), opacity 180ms ease;
+  z-index: 60;
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
+.deck-card.expanded {
+  z-index: 50;
+}
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.deck-card.expanded .links-panel {
+  transform: scaleY(1);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .dropdown-item {
   display: block;
-  padding: 8px 12px;
+  padding: 10px 12px;
   text-decoration: none;
   color: var(--text-primary);
-  border-radius: 6px;
-  font-size: 0.9rem;
-  transition: background 0.1s;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: background 0.12s ease, color 0.12s ease;
 }
 
 .dropdown-item:hover {

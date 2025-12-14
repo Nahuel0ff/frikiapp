@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-export default function DeckCard({ name, links, color, whatsapp, ck }) {
+export default function DeckCard({ name, links, color, whatsapp, ck, icon }) {
   const [isOpen, setIsOpen] = useState(false)
+  const [imgError, setImgError] = useState(false)
   const dropdownRef = useRef(null)
+
+  const iconSrc = icon || '/favicon.svg'
 
   const whatsappLink = `https://wa.me/${whatsapp}?text=Hola,%20me%20interesa%20tu%20mazo%20${encodeURIComponent(name)}`
   const hasMultipleLinks = links && links.length > 1
@@ -31,7 +34,27 @@ export default function DeckCard({ name, links, color, whatsapp, ck }) {
   const CardContent = () => (
     <>
       <div className="deck-header" style={{ backgroundColor: color }}>
-        <span className="deck-icon">🃏</span>
+        {!imgError ? (
+          <img
+            src={iconSrc}
+            alt={name}
+            className="deck-icon"
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <svg
+            className="deck-icon-fallback"
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-hidden
+          >
+            <rect width="48" height="48" rx="8" fill="rgba(255,255,255,0.95)" />
+            <text x="50%" y="50%" textAnchor="middle" dominantBaseline="central" fontWeight="700" fontSize="20" fill="#111">M</text>
+          </svg>
+        )}
       </div>
 
       <div className="deck-body">
@@ -44,7 +67,7 @@ export default function DeckCard({ name, links, color, whatsapp, ck }) {
           {hasMultipleLinks ? (
             <span>Ver Links {isOpen ? '▲' : '▼'}</span>
           ) : (
-            <span>Ver mazo →</span>
+            <span>Ver Link →</span>
           )}
         </div>
       </div>
@@ -52,7 +75,7 @@ export default function DeckCard({ name, links, color, whatsapp, ck }) {
   )
 
   return (
-    <div className="deck-card" style={{ borderTopColor: color }} ref={dropdownRef}>
+    <div className={`deck-card ${isOpen ? 'expanded' : ''}`} style={{ borderTopColor: color }} ref={dropdownRef}>
       {/* Main Card Interaction */}
       {hasMultipleLinks ? (
         <div className="deck-link action-trigger" onClick={handleCardClick}>
@@ -64,9 +87,9 @@ export default function DeckCard({ name, links, color, whatsapp, ck }) {
         </a>
       )}
 
-      {/* Dropdown Menu */}
-      {hasMultipleLinks && isOpen && (
-        <div className="dropdown-menu">
+      {/* Links panel: expands the card to reveal available links */}
+      {hasMultipleLinks && (
+        <div className="links-panel" aria-hidden={!isOpen}>
           {links.map((link, index) => (
             <a
               key={index}
